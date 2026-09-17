@@ -14,9 +14,10 @@
     <header class="hero">
       <p class="eyebrow">MIT Biomimetics Lab · Robotics</p>
       <h1>Heatmap Grasping</h1>
-      <p class="subtitle">Learning and evaluating grasp affordances from visual heatmaps for robust robotic manipulation.</p>
-      <p class="authors"><a href="https://github.com/andrewjnguyen21">Andrew Nguyen</a></p>
-      <p class="affiliation"><a href="https://biomimetics.mit.edu/">MIT Biomimetics Lab</a></p>
+      <p class="subtitle">Steerable and reactive grasping through modular design with a three-point interface.</p>
+      <p class="authors"><a href="https://github.com/andrewjnguyen21">Andrew Nguyen</a>, Yonghyeon Lee<sup>&dagger;</sup>, Sanbae Kim<sup>&dagger;</sup></p>
+      <p class="affiliation"><a href="https://biomimetics.mit.edu/">MIT Biomimetics Lab</a><br><sup>&dagger;</sup> Co-corresponding authors</p>
+      <p class="venue">2027 IEEE International Conference on Robotics &amp; Automation (ICRA) (under-review)</p>
       <div class="buttons">
         <a class="button" href="#">Code</a>
         <a class="button" href="#">Paper</a>
@@ -24,32 +25,32 @@
       </div>
     </header>
 
-    <section class="callout"><strong>TL;DR:</strong> Replace this sentence with the one-line description of your heatmap representation and its main result.</section>
+    <section class="callout"><strong>TL;DR:</strong> An offline grasp-affordance heatmap selects three-point grasp candidates, a model-based controller reaches them, and a proprioceptive reinforcement-learning policy refines contact and stabilizes the lift. The system reaches 91.9% nominal grasp-and-lift success on eight evaluated objects, compared with 56.1% for naive squeezing.</section>
 
     <section>
       <h2>Project overview</h2>
-      <p>Write a concise abstract here. Explain the input, how the heatmap is produced, how grasps are selected, and how the method is evaluated.</p>
+      <p>Dexterous grasping couples target selection, reaching, and contact stabilization. This work separates those responsibilities through a compact three-point interface. Geometry-based grasp-affordance heatmaps are precomputed from object meshes, optionally steered toward a language-specified region, and used to select contacts online according to the current hand pose. A model-based reactive controller then tracks the object and guides the hand toward the selected contacts. During the final centimeters, a reinforcement-learning policy uses only finger joint states and recent actions to refine contact, stabilize the grasp, and lift the object.</p>
     </section>
 
     <section>
       <h2>Results</h2>
       <div class="grid">
-        <article class="card"><div class="media-placeholder">Add a heatmap visualization</div><h3>Affordance heatmaps</h3><p>Explain what the colors represent.</p></article>
-        <article class="card"><div class="media-placeholder">Add a grasping demo</div><h3>Grasp execution</h3><p>Describe the experiment and result.</p></article>
-        <article class="card"><div class="media-placeholder">Add a plot or image</div><h3>Evaluation</h3><p>Summarize the metric that matters most.</p></article>
+        <article class="card"><div class="media-placeholder">Heatmap visualization to be added</div><h3>Steerable affordances</h3><p>Scores combine aperture, friction-cone alignment, contact coherence, center-of-mass alignment, and finger separation. An anchor can re-center the preferred grasp region within milliseconds.</p></article>
+        <article class="card"><div class="media-placeholder">Grasping sequence to be added</div><h3>Three-stage execution</h3><p>Hardware demonstrations show top-down grasps on a tomato soup can and potted meat can, plus a side grasp on an unseen Pringles can.</p></article>
+        <article class="card"><div class="media-placeholder">Evaluation plot to be added</div><h3>Grasp-and-lift success</h3><p>Our method achieves 91.9% nominal success on the selected eight-object subset, versus 56.1% for naive squeezing. Across 24 eligible objects, success is 40.3% versus 29.8%.</p></article>
       </div>
     </section>
 
     <section>
       <h2>Downloads</h2>
-      <p>Add papers, supplementary material, datasets, or project videos as they become available.</p>
+      <p><strong>Paper:</strong> <em>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface.</em> Add the paper PDF, supplementary material, datasets, and project videos to this repository as they become available.</p>
     </section>
 
     <section>
       <h2>Citation</h2>
-      <pre>@misc{nguyen_heatmap_grasping,
-  title  = {Heatmap Grasping},
-  author = {Andrew Nguyen},
+      <pre>@misc{nguyen2026steerable,
+  title  = {Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface},
+  author = {Andrew Nguyen and Yonghyeon Lee and Sanbae Kim},
   year   = {2026}
 }</pre>
     </section>

@@ -12,6 +12,7 @@ h1 { margin: 12px 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.15; }
 .subtitle { max-width: 760px; margin: 0 auto 18px; color: var(--muted); font-size: 1.2rem; }
 .authors { font-family: 'Google Sans', sans-serif; font-size: 1.1rem; margin: 8px 0 0; }
 .affiliation { color: var(--muted); margin-top: 0; }
+.venue { color: var(--muted); margin: 4px 0 0; font-size: .95rem; }
 .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .button { background: #363636; border-radius: 999px; color: white; padding: 9px 18px; }
 .button:hover { background: #555; text-decoration: none; }
