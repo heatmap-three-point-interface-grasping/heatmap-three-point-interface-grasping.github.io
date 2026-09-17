@@ -19,9 +19,8 @@
       <p class="affiliation"><a href="https://biomimetics.mit.edu/">MIT Biomimetics Lab</a><br><sup>&dagger;</sup> Co-corresponding authors</p>
       <p class="venue">2027 IEEE International Conference on Robotics &amp; Automation (ICRA) (under-review)</p>
       <div class="buttons">
-        <a class="button" href="#">Code</a>
-        <a class="button" href="#">Paper</a>
-        <a class="button" href="https://github.com/andrewjnguyen21/heatmap-grasping">Repository</a>
+        <a class="button" href="#downloads">Paper</a>
+        <a class="button" href="#results">Video</a>
       </div>
     </header>
 
@@ -32,7 +31,7 @@
       <p>Dexterous grasping couples target selection, reaching, and contact stabilization. This work separates those responsibilities through a compact three-point interface. Geometry-based grasp-affordance heatmaps are precomputed from object meshes, optionally steered toward a language-specified region, and used to select contacts online according to the current hand pose. A model-based reactive controller then tracks the object and guides the hand toward the selected contacts. During the final centimeters, a reinforcement-learning policy uses only finger joint states and recent actions to refine contact, stabilize the grasp, and lift the object.</p>
     </section>
 
-    <section>
+    <section id="results">
       <h2>Results</h2>
       <div class="grid">
         <article class="card"><video class="media-video" controls muted playsinline preload="metadata"><source src="media/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Steerable affordances</h3><p>The mustard-bottle pipeline shows heatmap-based target selection and three-point grasp planning from object geometry.</p></article>
@@ -41,7 +40,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="downloads">
       <h2>Downloads</h2>
       <p><strong>Paper:</strong> <em>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface.</em> Add the paper PDF, supplementary material, datasets, and project videos to this repository as they become available.</p>
     </section>
