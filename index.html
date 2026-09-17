@@ -26,9 +26,19 @@
 
     <section class="callout"><strong>TL;DR:</strong> An offline grasp-affordance heatmap selects three-point grasp candidates, a model-based controller reaches them, and a proprioceptive reinforcement-learning policy refines contact and stabilizes the lift. The system reaches 91.9% nominal grasp-and-lift success on eight evaluated objects, compared with 56.1% for naive squeezing.</section>
 
-    <section>
-      <h2>Project overview</h2>
-      <p>Dexterous grasping couples target selection, reaching, and contact stabilization. This work separates those responsibilities through a compact three-point interface. Geometry-based grasp-affordance heatmaps are precomputed from object meshes, optionally steered toward a language-specified region, and used to select contacts online according to the current hand pose. A model-based reactive controller then tracks the object and guides the hand toward the selected contacts. During the final centimeters, a reinforcement-learning policy uses only finger joint states and recent actions to refine contact, stabilize the grasp, and lift the object.</p>
+    <section class="abstract-section">
+      <h2>Abstract</h2>
+      <p>Dexterous grasping requires deciding where to grasp, reaching the target, and maintaining stable contact. We
+        connect these stages through a compact three-point interface that separates global geometric reasoning from
+        local contact control. Given object geometry and optional language commands, our framework samples contact
+        triples from a precomputed grasp-affordance heatmap. A model-based reactive controller tracks the object,
+        avoids collisions, and guides the hand toward the selected contacts. In the final centimeters, an Reinforcement
+        Learning policy uses proprioceptive feedback to refine and stabilize the grasp despite reaching and perception
+        errors. It observes only finger joint states and its recent actions, with no target points, visual observations,
+        or object geometry, so a single policy is shared across objects and grasp configurations. In simulation, we
+        compare grasp-and-lift success against squeeze and end-to-end baselines, characterize reaching convergence, and
+        demonstrate grasp steering; hardware demonstrations on two training objects and one unseen object illustrate the
+        full pipeline. Our modular framework uses geometry to guide the reach and local feedback to secure the grasp.</p>
     </section>
 
     <section id="results">
