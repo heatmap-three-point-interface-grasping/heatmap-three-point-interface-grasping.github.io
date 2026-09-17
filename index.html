@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Heatmap Grasping</title>
+  <title>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
   <main>
     <header class="hero">
       <p class="eyebrow">MIT Biomimetics Lab · Robotics</p>
-      <h1>Heatmap Grasping</h1>
+      <h1>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface</h1>
       <p class="subtitle">Steerable and reactive grasping through modular design with a three-point interface.</p>
       <p class="authors"><a href="https://github.com/andrewjnguyen21">Andrew Nguyen</a>, Yonghyeon Lee<sup>&dagger;</sup>, Sanbae Kim<sup>&dagger;</sup></p>
       <p class="affiliation"><a href="https://biomimetics.mit.edu/">MIT Biomimetics Lab</a><br><sup>&dagger;</sup> Co-corresponding authors</p>
@@ -35,9 +35,9 @@
     <section>
       <h2>Results</h2>
       <div class="grid">
-        <article class="card"><div class="media-placeholder">Heatmap visualization to be added</div><h3>Steerable affordances</h3><p>Scores combine aperture, friction-cone alignment, contact coherence, center-of-mass alignment, and finger separation. An anchor can re-center the preferred grasp region within milliseconds.</p></article>
-        <article class="card"><div class="media-placeholder">Grasping sequence to be added</div><h3>Three-stage execution</h3><p>Hardware demonstrations show top-down grasps on a tomato soup can and potted meat can, plus a side grasp on an unseen Pringles can.</p></article>
-        <article class="card"><div class="media-placeholder">Evaluation plot to be added</div><h3>Grasp-and-lift success</h3><p>Our method achieves 91.9% nominal success on the selected eight-object subset, versus 56.1% for naive squeezing. Across 24 eligible objects, success is 40.3% versus 29.8%.</p></article>
+        <article class="card"><video class="media-video" controls muted playsinline preload="metadata"><source src="media/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Steerable affordances</h3><p>The mustard-bottle pipeline shows heatmap-based target selection and three-point grasp planning from object geometry.</p></article>
+        <article class="card"><video class="media-video" controls muted playsinline preload="metadata"><source src="media/pringles-grasp.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Three-stage execution</h3><p>The Pringles hardware demo shows reactive reaching, final-centimeter contact adjustment, and grasp stabilization on an unseen object.</p></article>
+        <article class="card"><video class="media-video" controls muted playsinline preload="metadata"><source src="media/rubiks-cube-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Grasp-and-lift evaluation</h3><p>The Rubik's-cube pipeline provides an additional view of the heatmap and grasp-execution stages behind the reported success results.</p></article>
       </div>
     </section>
 

@@ -24,5 +24,6 @@ h3 { margin-bottom: 4px; }
 .card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; padding-bottom: 14px; }
 .card h3, .card p { margin-left: 16px; margin-right: 16px; }
 .media-placeholder { display: grid; place-items: center; min-height: 170px; padding: 20px; background: #eef2f7; color: var(--muted); text-align: center; }
+.media-video { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #eef2f7; }
 pre { overflow-x: auto; background: #363636; color: #f9fafb; padding: 20px; border-radius: 10px; }
 footer { border-top: 1px solid var(--line); color: var(--muted); max-width: 1040px; margin: auto; padding: 22px 24px 40px; font-size: .9rem; }
