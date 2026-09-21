@@ -1,26 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
+
 <body>
-  <nav class="nav"><a href="https://andrewjnguyen21.github.io/">Andrew Nguyen</a></nav>
+
+  <!-- <nav class="navbar"><a class="navbar-item" href="https://andrewjnguyen21.github.io/">Andrew Nguyen</a></nav> -->
 
   <main>
     <header class="hero">
-      <p class="eyebrow">MIT Biomimetics Lab · Robotics</p>
       <h1>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface</h1>
-      <p class="subtitle">Steerable and reactive grasping through modular design with a three-point interface.</p>
-      <p class="authors"><a href="https://andrewjnguyen21.github.io/">Andrew Nguyen</a>, <a href="https://rophi-lab.github.io/people.html">Yonghyeon Lee</a><sup>&dagger;</sup>, <a href="https://meche.mit.edu/people/faculty/sangbae@mit.edu">Sanbae Kim</a><sup>&dagger;</sup></p>
-      <p class="affiliation"><a href="https://biomimetics.mit.edu/">MIT Biomimetics Lab</a><br><sup>&dagger;</sup> Co-corresponding authors</p>
-      <p class="venue">2027 IEEE International Conference on Robotics &amp; Automation (ICRA) (under-review)</p>
+      <p class="subtitle">Under review</p>
+      <p class="authors"><a href="https://andrewjnguyen21.github.io/">Andrew Nguyen<sup>1,2</sup></a>, <a href="https://rophi-lab.github.io/people.html">Yonghyeon Lee<sup>3,&dagger;</sup></a>, <a href="https://meche.mit.edu/people/faculty/sangbae@mit.edu">Sangbae Kim<sup>2,&dagger;</sup></a></p>
+      <p class="affiliation"><sup>1</sup> University of Michigan · <sup>2</sup> Massachusetts Institute of Technology · <sup>3</sup> Yonsei University</p>
+      <p class="affiliation"><sup>&dagger;</sup> Corresponding authors</p>
       <div class="buttons">
-        <a class="button" href="#downloads">Paper</a>
-        <a class="button" href="#results">Video</a>
+        <a class="button" href="#citation"><span class="button-icon" aria-hidden="true">▣</span> Paper</a>
+        <a class="button" href="#results"><span class="button-icon" aria-hidden="true">▶</span> Video</a>
       </div>
     </header>
 
@@ -28,43 +30,162 @@
 
     <section class="abstract-section">
       <h2>Abstract</h2>
-      <p>Dexterous grasping requires deciding where to grasp, reaching the target, and maintaining stable contact. We
-        connect these stages through a compact three-point interface that separates global geometric reasoning from
-        local contact control. Given object geometry and optional language commands, our framework samples contact
-        triples from a precomputed grasp-affordance heatmap. A model-based reactive controller tracks the object,
-        avoids collisions, and guides the hand toward the selected contacts. In the final centimeters, an Reinforcement
-        Learning policy uses proprioceptive feedback to refine and stabilize the grasp despite reaching and perception
-        errors. It observes only finger joint states and its recent actions, with no target points, visual observations,
-        or object geometry, so a single policy is shared across objects and grasp configurations. In simulation, we
-        compare grasp-and-lift success against squeeze and end-to-end baselines, characterize reaching convergence, and
-        demonstrate grasp steering; hardware demonstrations on two training objects and one unseen object illustrate the
-        full pipeline. Our modular framework uses geometry to guide the reach and local feedback to secure the grasp.</p>
+      <p>Dexterous grasping requires deciding where to grasp, reaching the target, and maintaining stable contact. We connect these stages through a compact three-point interface that separates global geometric reasoning from local contact control. Given object geometry and optional language commands, our framework samples contact triples from a precomputed grasp-affordance heatmap. A model-based reactive controller tracks the object, avoids collisions, and guides the hand toward the selected contacts. In the final centimeters, a Reinforcement Learning (RL) policy uses proprioceptive feedback to refine and stabilize the grasp despite reaching and perception errors. It observes only finger joint states and its recent actions, with no target points, visual observations, or object geometry, so a single policy is shared across objects and grasp configurations. In simulation, we compare grasp-and-lift success against squeeze and end-to-end baselines, characterize reaching convergence, and demonstrate grasp steering; hardware demonstrations on two training objects and one unseen object illustrate the full pipeline. Our modular framework uses geometry to guide the reach and local feedback to secure the grasp.</p>
     </section>
 
     <section id="results">
-      <h2>Results</h2>
+      <h2>1. Heatmap-Based Grasp Selection</h2>
+      <p>An offline grasp-affordance heatmap over the object surface is sampled for three-point contact triples, and re-selected in real time as the object moves.</p>
       <div class="grid">
-        <article class="card"><video class="media-video" controls autoplay muted playsinline preload="metadata"><source src="media/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Steerable affordances</h3><p>The mustard-bottle pipeline shows heatmap-based target selection and three-point grasp planning from object geometry.</p></article>
-        <article class="card"><video class="media-video" controls autoplay muted playsinline preload="metadata"><source src="media/pringles-grasp.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Three-stage execution</h3><p>The Pringles hardware demo shows reactive reaching, final-centimeter contact adjustment, and grasp stabilization on an unseen object.</p></article>
-        <article class="card"><video class="media-video" controls autoplay muted playsinline preload="metadata"><source src="media/rubiks-cube-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.</video><h3>Grasp-and-lift evaluation</h3><p>The Rubik's-cube pipeline provides an additional view of the heatmap and grasp-execution stages behind the reported success results.</p></article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>How a heatmap is built</h3>
+          <p>On the mustard bottle, each candidate is scored in six steps: sample the surface, place the wrap contacts, check wrap alignment, keep the fingers a fingertip apart, weight by COM torque, then score every vertex into the grasp-affordance field.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/rubiks-cube-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Heatmap construction: Rubik's cube</h3>
+          <p>The same six-step construction applied to a Rubik's cube.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/heatmap-gallery.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Heatmap gallery</h3>
+          <p>Grasp-affordance heatmaps for four hero objects (sugar box, mustard bottle, power drill, toy airplane), then the full YCB object set. Each heatmap is computed once per object and reused at any pose.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/heatmap-runtime-selection.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Real-time contact selection</h3>
+          <p>The cached heatmap rides a moving object while the controller re-picks three-point contacts as the pose changes, at a measured 8.5 ms median per re-selection.</p>
+        </article>
+      </div>
+
+      <h2>2. Grasp Steering</h2>
+      <p>A user-specified anchor, from a point or a language command, morphs the grasp-affordance heatmap toward a new region of the object, letting the same interface target different parts of the same object.</p>
+      <div class="grid">
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/steering-anchors.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Steering via anchors</h3>
+          <p>An anchor shifts which contacts get picked: the default heatmaps morph toward the requested region on the mustard bottle (top), wine glass (stem), pitcher (body), and wire cutters (handle).</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/steering-realtime.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Real-time steering</h3>
+          <p>As the anchor slides across the object, the heatmap re-weights and the selected contacts follow, at a measured 15.1 ms median per update.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/steered-execution.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Steered execution</h3>
+          <p>Same object and pose, only the anchor changes: the full reactive stack executes top- vs. bottom-anchored grasps in simulation, then re-routes mid-reach when the anchor moves during execution.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-steering-top.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Steering: top</h3>
+          <p>The three-point interface steered to grasp a foam brick near its top.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-steering-middle.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Steering: middle</h3>
+          <p>The same foam brick steered and grasped at its midpoint.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-steering-bottom.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Steering: bottom</h3>
+          <p>The same foam brick steered and grasped near its base.</p>
+        </article>
+      </div>
+
+      <h2>3. Reactive Reaching</h2>
+      <p>A model-based controller tracks the object and reaches the selected contacts, handing off to the learned policy once it is close enough or a fine-motion time budget expires.</p>
+      <div class="grid single">
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-convergence-potted.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Reach convergence</h3>
+          <p>The reach to a potted meat can is fast at first, then crawls; it converges inside the 20 mm tolerance at 1.6 s of the 3 s fine-adjustment budget and hands off at 17 mm. Over 2,752 randomized reaches, more time barely helps: 78.3% converge at 3 s vs. 80.0% at 7 s, so the closing policy must absorb the residual error.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/diverse-reaching.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Reaching and grasping from many directions</h3>
+          <p>Six deploy-controller runs on six objects, approaching from 29&deg; to 61&deg; below horizontal: one take per cell, with the full reach from the home pose, then the close and the lift, followed by the approach-direction distribution over all 444 successful benchmark episodes.</p>
+        </article>
+      </div>
+
+      <h2>4. Learned Policy vs. Naive Squeeze</h2>
+      <p>In the final centimeters, a proprioceptive reinforcement-learning policy refines contact and stabilizes the lift, compared here against a naive squeeze baseline from the same reach.</p>
+      <div class="grid single">
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/squeeze-failures.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Squeeze-baseline failures</h3>
+          <p>The squeeze baseline guides the fingertips to the contacts, then grips at 3 N. A tomato soup can twists out of the grasp and falls, followed by 16 representative failures across the eight evaluated objects, played until the object lands.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/rl-vs-squeeze.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Same start, different closing controller</h3>
+          <p>From the same start, the squeeze baseline drops a tomato soup can while the learned policy, which sees only finger joint states and its recent actions, holds it; then four paired objects (pitcher base, apple, foam brick, potted meat can). Across the eight evaluated objects, the learned policy reaches 91.9% nominal grasp-and-lift success vs. 56.1% for naive squeezing.</p>
+        </article>
+      </div>
+
+      <h2>5. Hardware Demonstrations</h2>
+      <p>Real-time hardware footage of the full pipeline (reach, contact refinement, and lift) on two training objects and one unseen object.</p>
+      <div class="grid">
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-tomato-soup-can.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Tomato soup can</h3>
+          <p>Training object, top-down grasp: full reach, contact refinement, and lift on a tomato soup can.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-spam.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Potted meat can</h3>
+          <p>Training object, top-down grasp: full reach, contact refinement, and lift on a potted meat can.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/hw-pringles.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Pringles can (unseen object)</h3>
+          <p>Unseen object, side grasp: full reach, contact refinement, and lift on a Pringles can the policy never saw in training.</p>
+        </article>
       </div>
     </section>
 
-    <section id="downloads">
-      <h2>Downloads</h2>
-      <p><strong>Paper:</strong> <em>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface.</em> Add the paper PDF, supplementary material, datasets, and project videos to this repository as they become available.</p>
-    </section>
-
-    <section>
+    <section id="citation">
       <h2>Citation</h2>
-      <pre>@misc{nguyen2026steerable,
+      <pre><code>@misc{nguyen2026steerable,
   title  = {Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface},
-  author = {Andrew Nguyen and Yonghyeon Lee and Sanbae Kim},
+  author = {Andrew Nguyen and Yonghyeon Lee and Sangbae Kim},
   year   = {2026}
-}</pre>
+}</code></pre>
     </section>
   </main>
 
   <footer>Layout inspired by modern robotics project pages. Built for local editing with plain HTML and CSS.</footer>
+
+  <script>
+    document.querySelectorAll('.media-video').forEach((video) => {
+      const updateOrientation = () => {
+        if (!video.videoWidth || !video.videoHeight) return;
+        video.classList.toggle('is-portrait', video.videoHeight > video.videoWidth);
+        video.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+      };
+
+      video.addEventListener('loadedmetadata', updateOrientation);
+      updateOrientation();
+    });
+  </script>
 </body>
+
 </html>
