@@ -106,7 +106,19 @@
 
       <h2>3. Reactive Reaching</h2>
       <p>A model-based controller tracks the object and reaches the selected contacts, handing off to the learned policy once it is close enough or a fine-motion time budget expires.</p>
-      <div class="grid single">
+      <div class="grid">
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-retarget-apple.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Retargeting: apple</h3>
+          <p>The apple jumps 80 mm sideways just 0.6 s into the reach, roughly a third of the way there; the fingertip error spikes to 50 mm, the controller re-latches onto the new pose, and it still closes by 1.6 s.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-retarget-tomato.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Retargeting: tomato soup can</h3>
+          <p>An 80 mm mid-reach nudge pushes the fingertip error to 62 mm, the rougher of the two; the controller re-latches and closes just 0.6 s later.</p>
+        </article>
         <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
             <source src="media/reach-convergence-potted.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
