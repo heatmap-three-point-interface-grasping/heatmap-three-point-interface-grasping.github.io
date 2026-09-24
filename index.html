@@ -106,19 +106,46 @@
 
       <h2>3. Reactive Reaching</h2>
       <p>A model-based controller tracks the object and reaches the selected contacts, handing off to the learned policy once it is close enough or a fine-motion time budget expires.</p>
+      <p>In the clips below, the object is driven along a smooth path in simulation while the arm is already reaching. The examples vary the object, the path's shape and length, whether the object rotates, and when in the reach it starts moving. The controller tracks the live object pose on every tick. The orange band on the chart marks when the object is moving, and the trail on the table shows the path it has covered so far. The closing policy takes over once the object stops and the fingertips settle.</p>
       <div class="grid">
         <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-retarget-apple.mp4" type="video/mp4">Your browser does not support embedded video.
+            <source src="media/reach-moving-apple-sweep.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
-          <h3>Retargeting: apple</h3>
-          <p>The apple jumps 80 mm sideways just 0.6 s into the reach, roughly a third of the way there; the fingertip error spikes to 50 mm, the controller re-latches onto the new pose, and it still closes by 1.6 s.</p>
+          <h3>Sideways sweep: apple</h3>
+          <p>The apple slides 20 cm sideways over 3.4 s, starting just 0.3 s into the reach. Once the hand arrives it trails the moving apple at a steady ~28 mm, then closes at 22 mm as the apple comes to rest.</p>
         </article>
         <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-retarget-tomato.mp4" type="video/mp4">Your browser does not support embedded video.
+            <source src="media/reach-moving-tomato-late-diag.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
-          <h3>Retargeting: tomato soup can</h3>
-          <p>An 80 mm mid-reach nudge pushes the fingertip error to 62 mm, the rougher of the two; the controller re-latches and closes just 0.6 s later.</p>
+          <h3>Late start: tomato soup can</h3>
+          <p>The can holds still until 1.3 s, when the fingertips are already within 40 mm, then slides 18 cm diagonally. The hand stays within 38 mm of its targets throughout and hands off at 16 mm.</p>
         </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-moving-rubiks-zigzag.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Reversal: Rubik's cube</h3>
+          <p>The cube goes 12 cm one way, then reverses for 18 cm the other way: 30 cm of travel in 3.5 s at up to 14 cm/s. The hand turns around with it and hands off at 21 mm.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-moving-potted-arc-turn.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Arc and turn: potted meat can</h3>
+          <p>A 26 cm arc with a 90&deg; turn along the way, so the selected contacts swing around the can as it moves. The reach keeps re-aiming at them and settles to 22 mm after the can stops.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-moving-sugar-spin.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Spin in place: sugar box</h3>
+          <p>No translation at all: the box turns 120&deg; in place over 3 s. The fingertip targets orbit with its faces, the hand follows them around, and it hands off at 17 mm.</p>
+        </article>
+        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
+            <source src="media/reach-moving-chef-two-shoves.mp4" type="video/mp4">Your browser does not support embedded video.
+          </video>
+          <h3>Two shoves: master chef can</h3>
+          <p>Two separate 10 cm shoves at 0.6 s and 2.4 s, with a pause between them. The second shove comes after the hand has closed in and pushes the error back out to 66 mm; the hand re-converges and hands off at 29 mm.</p>
+        </article>
+      </div>
+      <div class="grid">
         <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
             <source src="media/reach-convergence-potted.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
