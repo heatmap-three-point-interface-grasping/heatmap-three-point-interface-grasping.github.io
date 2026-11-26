@@ -5,13 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Steerable and Reactive Grasping Through Modular Design with a Three-Point Interface</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1622" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
-
-  <!-- <nav class="navbar"><a class="navbar-item" href="https://andrewjnguyen21.github.io/">Andrew Nguyen</a></nav> -->
 
   <main>
     <header class="hero">
@@ -215,7 +217,7 @@
     </section>
   </main>
 
-  <footer>Layout inspired by modern robotics project pages. Built for local editing with plain HTML and CSS.</footer>
+  <footer>Website template modified from <a href="https://nerfies.github.io/">Nerfies</a>.</footer>
 
   <script>
     document.querySelectorAll('.media-video').forEach((video) => {
@@ -228,6 +230,19 @@
       video.addEventListener('loadedmetadata', updateOrientation);
       updateOrientation();
     });
+
+    // Respect the system Reduce Motion setting: no autoplaying video.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const applyMotionPreference = () => {
+      document.querySelectorAll('.media-video').forEach((video) => {
+        if (reduceMotion.matches) {
+          video.removeAttribute('autoplay');
+          video.pause();
+        }
+      });
+    };
+    applyMotionPreference();
+    reduceMotion.addEventListener('change', applyMotionPreference);
   </script>
 </body>
 
