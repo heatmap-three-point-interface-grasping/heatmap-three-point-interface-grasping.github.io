@@ -39,26 +39,26 @@
       <h2>1. Heatmap-Based Grasp Selection</h2>
       <p>An offline grasp-affordance heatmap over the object surface is sampled for three-point contact triples, and re-selected in real time as the object moves.</p>
       <div class="grid">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/mustard-bottle-pipeline.jpg">
+            <source src="media/web/mustard-bottle-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>How a heatmap is built</h3>
           <p>On the mustard bottle, each candidate is scored in six steps: sample the surface, place the wrap contacts, check wrap alignment, keep the fingers a fingertip apart, weight by COM torque, then score every vertex into the grasp-affordance field.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/rubiks-cube-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/rubiks-cube-pipeline.jpg">
+            <source src="media/web/rubiks-cube-pipeline.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Heatmap construction: Rubik's cube</h3>
           <p>The same six-step construction applied to a Rubik's cube.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/heatmap-gallery.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/heatmap-gallery.jpg">
+            <source src="media/web/heatmap-gallery.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Heatmap gallery</h3>
           <p>Grasp-affordance heatmaps for four hero objects (sugar box, mustard bottle, power drill, toy airplane), then the full YCB object set. Each heatmap is computed once per object and reused at any pose.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/heatmap-runtime-selection.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/heatmap-runtime-selection.jpg">
+            <source src="media/web/heatmap-runtime-selection.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Real-time contact selection</h3>
           <p>The cached heatmap rides a moving object while the controller re-picks three-point contacts as the pose changes, at a measured 8.5 ms median per re-selection.</p>
@@ -68,38 +68,38 @@
       <h2>2. Grasp Steering</h2>
       <p>A user-specified anchor, from a point or a language command, morphs the grasp-affordance heatmap toward a new region of the object, letting the same interface target different parts of the same object.</p>
       <div class="grid">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/steering-anchors.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/steering-anchors.jpg">
+            <source src="media/web/steering-anchors.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Steering via anchors</h3>
           <p>An anchor shifts which contacts get picked: the default heatmaps morph toward the requested region on the mustard bottle (top), wine glass (stem), pitcher (body), and wire cutters (handle).</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/steering-realtime.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/steering-realtime.jpg">
+            <source src="media/web/steering-realtime.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Real-time steering</h3>
           <p>As the anchor slides across the object, the heatmap re-weights and the selected contacts follow, at a measured 15.1 ms median per update.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/steered-execution.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/steered-execution.jpg">
+            <source src="media/web/steered-execution.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Steered execution</h3>
           <p>Same object and pose, only the anchor changes: the full reactive stack executes top- vs. bottom-anchored grasps in simulation, then re-routes mid-reach when the anchor moves during execution.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-steering-top.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-steering-top.jpg">
+            <source src="media/web/hw-steering-top.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Steering: top</h3>
           <p>The three-point interface steered to grasp a foam brick near its top.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-steering-middle.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-steering-middle.jpg">
+            <source src="media/web/hw-steering-middle.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Steering: middle</h3>
           <p>The same foam brick steered and grasped at its midpoint.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-steering-bottom.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-steering-bottom.jpg">
+            <source src="media/web/hw-steering-bottom.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Steering: bottom</h3>
           <p>The same foam brick steered and grasped near its base.</p>
@@ -110,52 +110,52 @@
       <p>A model-based controller tracks the object and reaches the selected contacts, handing off to the learned policy once it is close enough or a fine-motion time budget expires.</p>
       <p>In the clips below, the object is driven along a smooth path in simulation while the arm is already reaching. The examples vary the object, the path's shape and length, whether the object rotates, and when in the reach it starts moving. The controller tracks the live object pose on every tick. The orange band on the chart marks when the object is moving, and the trail on the table shows the path it has covered so far. The closing policy takes over once the object stops and the fingertips settle.</p>
       <div class="grid">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-apple-sweep.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-apple-sweep.jpg">
+            <source src="media/web/reach-moving-apple-sweep.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Sideways sweep: apple</h3>
           <p>The apple slides 20 cm sideways over 3.4 s, starting just 0.3 s into the reach. Once the hand arrives it trails the moving apple at a steady ~28 mm, then closes at 22 mm as the apple comes to rest.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-tomato-late-diag.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-tomato-late-diag.jpg">
+            <source src="media/web/reach-moving-tomato-late-diag.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Late start: tomato soup can</h3>
           <p>The can holds still until 1.3 s, when the fingertips are already within 40 mm, then slides 18 cm diagonally. The hand stays within 38 mm of its targets throughout and hands off at 16 mm.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-rubiks-zigzag.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-rubiks-zigzag.jpg">
+            <source src="media/web/reach-moving-rubiks-zigzag.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Reversal: Rubik's cube</h3>
           <p>The cube goes 12 cm one way, then reverses for 18 cm the other way: 30 cm of travel in 3.5 s at up to 14 cm/s. The hand turns around with it and hands off at 21 mm.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-potted-arc-turn.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-potted-arc-turn.jpg">
+            <source src="media/web/reach-moving-potted-arc-turn.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Arc and turn: potted meat can</h3>
           <p>A 26 cm arc with a 90&deg; turn along the way, so the selected contacts swing around the can as it moves. The reach keeps re-aiming at them and settles to 22 mm after the can stops.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-sugar-spin.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-sugar-spin.jpg">
+            <source src="media/web/reach-moving-sugar-spin.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Spin in place: sugar box</h3>
           <p>No translation at all: the box turns 120&deg; in place over 3 s. The fingertip targets orbit with its faces, the hand follows them around, and it hands off at 17 mm.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-moving-chef-two-shoves.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-moving-chef-two-shoves.jpg">
+            <source src="media/web/reach-moving-chef-two-shoves.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Two shoves: master chef can</h3>
           <p>Two separate 10 cm shoves at 0.6 s and 2.4 s, with a pause between them. The second shove comes after the hand has closed in and pushes the error back out to 66 mm; the hand re-converges and hands off at 29 mm.</p>
         </article>
       </div>
       <div class="grid">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/reach-convergence-potted.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/reach-convergence-potted.jpg">
+            <source src="media/web/reach-convergence-potted.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Reach convergence</h3>
           <p>The reach to a potted meat can is fast at first, then crawls; it converges inside the 20 mm tolerance at 1.6 s of the 3 s fine-adjustment budget and hands off at 17 mm. Over 2,752 randomized reaches, more time barely helps: 78.3% converge at 3 s vs. 80.0% at 7 s, so the closing policy must absorb the residual error.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/diverse-reaching.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/diverse-reaching.jpg">
+            <source src="media/web/diverse-reaching.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Reaching and grasping from many directions</h3>
           <p>Six deploy-controller runs on six objects, approaching from 29&deg; to 61&deg; below horizontal: one take per cell, with the full reach from the home pose, then the close and the lift, followed by the approach-direction distribution over all 444 successful benchmark episodes.</p>
@@ -165,14 +165,14 @@
       <h2>4. Learned Policy vs. Naive Squeeze</h2>
       <p>In the final centimeters, a proprioceptive reinforcement-learning policy refines contact and stabilizes the lift, compared here against a naive squeeze baseline from the same reach.</p>
       <div class="grid single">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/squeeze-failures.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/squeeze-failures.jpg">
+            <source src="media/web/squeeze-failures.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Squeeze-baseline failures</h3>
           <p>The squeeze baseline guides the fingertips to the contacts, then grips at 3 N. A tomato soup can twists out of the grasp and falls, followed by 16 representative failures across the eight evaluated objects, played until the object lands.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/rl-vs-squeeze.mp4" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/rl-vs-squeeze.jpg">
+            <source src="media/web/rl-vs-squeeze.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Same start, different closing controller</h3>
           <p>From the same start, the squeeze baseline drops a tomato soup can while the learned policy, which sees only finger joint states and its recent actions, holds it; then four paired objects (pitcher base, apple, foam brick, potted meat can). Across the eight evaluated objects, the learned policy reaches 91.9% nominal grasp-and-lift success vs. 56.1% for naive squeezing.</p>
@@ -182,20 +182,20 @@
       <h2>5. Hardware Demonstrations</h2>
       <p>Real-time hardware footage of the full pipeline (reach, contact refinement, and lift) on two training objects and one unseen object.</p>
       <div class="grid">
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-tomato-soup-can.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-tomato-soup-can.jpg">
+            <source src="media/web/hw-tomato-soup-can.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Tomato soup can</h3>
           <p>Training object, top-down grasp: full reach, contact refinement, and lift on a tomato soup can.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-spam.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-spam.jpg">
+            <source src="media/web/hw-spam.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Potted meat can</h3>
           <p>Training object, top-down grasp: full reach, contact refinement, and lift on a potted meat can.</p>
         </article>
-        <article class="card"><video class="media-video" autoplay controls muted loop playsinline preload="metadata">
-            <source src="media/hw-pringles.mp4?v=2" type="video/mp4">Your browser does not support embedded video.
+        <article class="card"><video class="media-video" controls muted loop playsinline preload="none" poster="media/web/hw-pringles.jpg">
+            <source src="media/web/hw-pringles.mp4" type="video/mp4">Your browser does not support embedded video.
           </video>
           <h3>Pringles can (unseen object)</h3>
           <p>Unseen object, side grasp: full reach, contact refinement, and lift on a Pringles can the policy never saw in training.</p>
@@ -229,20 +229,50 @@
 
       video.addEventListener('loadedmetadata', updateOrientation);
       updateOrientation();
+
+      // Videos load lazily, so lay them out from the poster until the video itself has loaded.
+      if (video.poster) {
+        const img = new Image();
+        img.onload = () => {
+          if (video.videoWidth) return;
+          video.classList.toggle('is-portrait', img.naturalHeight > img.naturalWidth);
+          video.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+        };
+        img.src = video.poster;
+      }
     });
 
+    // Play only the videos that are on screen, so the page doesn't download every clip at once.
     // Respect the system Reduce Motion setting: no autoplaying video.
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const applyMotionPreference = () => {
-      document.querySelectorAll('.media-video').forEach((video) => {
-        if (reduceMotion.matches) {
-          video.removeAttribute('autoplay');
-          video.pause();
-        }
-      });
+    const onScreen = new Set();
+    const syncVideo = (video) => {
+      if (!reduceMotion.matches && onScreen.has(video) && !document.hidden && !video.dataset.userPaused) {
+        video.play().catch(() => { });
+      } else if (!video.paused) {
+        video.dataset.autoPaused = '1';
+        video.pause();
+      }
     };
-    applyMotionPreference();
-    reduceMotion.addEventListener('change', applyMotionPreference);
+    const syncAll = () => document.querySelectorAll('.media-video').forEach(syncVideo);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) onScreen.add(target); else onScreen.delete(target);
+        syncVideo(target);
+      });
+    }, { rootMargin: '100px 0px', threshold: 0.2 });
+    document.querySelectorAll('.media-video').forEach((video) => {
+      video.muted = true;
+      // Remember when a visitor pauses a clip with the controls, so scrolling doesn't restart it.
+      video.addEventListener('pause', () => {
+        if (video.dataset.autoPaused) delete video.dataset.autoPaused;
+        else if (onScreen.has(video) && !document.hidden) video.dataset.userPaused = '1';
+      });
+      video.addEventListener('play', () => delete video.dataset.userPaused);
+      observer.observe(video);
+    });
+    reduceMotion.addEventListener('change', syncAll);
+    document.addEventListener('visibilitychange', syncAll);
   </script>
 </body>
 
